@@ -1,0 +1,23 @@
+{
+  "name": "mailmanager",
+  "version": "1.0.0",
+  "description": "API based o NodeJS to send emails in Gmail",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/srueda99/MailManager.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/srueda99/MailManager/issues"
+  },
+  "homepage": "https://github.com/srueda99/MailManager#readme",
+  "dependencies": {
+    "dotenv": "^16.0.0",
+    "express": "^4.17.3"
+  }
+}
