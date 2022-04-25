@@ -3,11 +3,13 @@ const express = require('express');
 const dotenv = require('dotenv');
 const nodemailer = require('nodemailer');
 const path = require('path');
+const pug = require('pug');
 dotenv.config();
 
 // --- SERVER ---
 // Start the server running with port as env variable
 const app = express();
+app.use(express.urlencoded({ extended: true }));
 const port = process.env.PORT || 4040;
 app.listen(port, () => {
 	console.log('****************************');
@@ -41,11 +43,15 @@ app.get('/', (req,res) => {
 
 // --- SEND ROUTE ---
 app.post('/send', (req, res) => {
+    console.log(req.body);
+    var receiver = req.body.receiver;
+    var subject = req.body.subject;
+    var message = req.body.message;
     var mailParams = {
         from: process.env.EMAIL,
-        to: "sebasruedam99@gmail.com",
-        subject: "Sent from server",
-        text: "Can ya read this?"
+        to: receiver,
+        subject: subject,
+        html: pug.renderFile(__dirname + '/views/content.pug', {message: message})
     };
 
     transporter.sendMail(mailParams, (error, info) => {
@@ -54,7 +60,8 @@ app.post('/send', (req, res) => {
         }
         else {
             console.log('Message sent.');
-            res.status(200).jsonp(req.body);
+            //res.status(200).sendFile(path.join(__dirname + '/views/content.pug'));
+            res.status(200).send('Message sent.');
         }
     });
 });

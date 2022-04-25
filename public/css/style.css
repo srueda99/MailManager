@@ -1,6 +1,6 @@
 BODY {
-    background-color: whitesmoke;
-    color: black;
+    background-color: black;
+    color: whitesmoke;
     font-size: large;
     font-family: serif, 'Times New Roman', Times, serif;
     text-align: center;
@@ -20,7 +20,7 @@ INPUT {
 	padding: 10px;
     border: solid lightgray 2px;
     background: #efefef;
-    box-shadow: 0 0 40px rgba(255, 255, 255, 0.226);
+    box-shadow: 0 0 40px #ffffff3a;
 	outline: none;
 	border-radius: 5px;
 }
@@ -28,15 +28,18 @@ INPUT {
 BUTTON {
     margin: 2px auto;
     border: none;
-    background-color: whitesmoke;
+    border-radius: 20px;
+    background-color: white;
+    box-shadow: 0 0 40px #8888873a;
 }
 
 FORM {
-    background-color: whitesmoke;
-    padding: 5px;
+    color: black;
+    background-color: white;
+    padding: 10px;
     border-radius: 10px;
     margin: 2px auto;
-    border: 2px solid yellow;
+    border: 5px solid black;
 }
 
 .container {
@@ -46,6 +49,10 @@ FORM {
     align-items: center;
     flex-direction: column;
     margin: 50px;
+    color: black;
+    background-color: yellow;
+    border: 5px solid whitesmoke;
+    border-radius: 20px;
 }
 
 .container-row {
@@ -55,8 +62,21 @@ FORM {
     align-items: center;
     flex-direction: row;
     margin: 50px;
-    background-color: black;
+    background-color: whitesmoke;
     padding: 30px;
-    border: 2px solid yellow;
+    border: 5px solid black;
     border-radius: 10px;
+}
+
+.animation {
+    transition: 1s;
+    margin: 20px;
+}
+.animation:hover {
+    transform: rotate(360deg);
+}
+
+.block {
+    background-color: yellow;
+    width: 100%;
 }
