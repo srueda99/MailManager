@@ -13,24 +13,29 @@ app.listen(port, () => {
     console.log(`Server running on port: ${port}`);
 });
 
-// Set up the mail server
+// Set up the mail server with gmail credentials
 const transporter = nodemailer.createTransport({
-    host: "smtp.ethereal.email",
-    port: 587,
-    secure: false,
+    host: 'smtp.gmail.com',
+    port: 465,
+    secure: true, // 465 is the secure port
     auth: {
-        user: "sonia.corwin6@ethereal.email",
-        pass: "e8cUYFdetnuNyzbE1r"
+        user: process.env.EMAIL,
+        pass: process.env.PASSWORD
     }
+});
+
+// Credentials verification
+transporter.verify().then(() => {
+    console.log('Connection established with Gmail');
 });
 
 // --- SEND ROUTE ---
 app.post('/send', (req, res) => {
     var mailParams = {
-        from: "sonia.corwin6@ethereal.email",
-        to: "sonia.corwin6@ethereal.email",
-        subject: "Enviado desde el server",
-        text: "Puedes leer esto?"
+        from: process.env.EMAIL,
+        to: "sebasruedam99@gmail.com",
+        subject: "Sent from server",
+        text: "Can ya read this?"
     };
 
     transporter.sendMail(mailParams, (error, info) => {
@@ -38,7 +43,7 @@ app.post('/send', (req, res) => {
             res.status(500).send(error.message);
         }
         else {
-            console.log("Mensaje enviado");
+            console.log('Message sent.');
             res.status(200).jsonp(req.body);
         }
     });
