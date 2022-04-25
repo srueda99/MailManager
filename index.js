@@ -13,24 +13,24 @@ app.listen(port, () => {
     console.log(`Server running on port: ${port}`);
 });
 
-// Set up the mail server
+// Set up the mail server with Ethereal mail
 const transporter = nodemailer.createTransport({
-    host: "smtp.ethereal.email",
+    host: 'smtp.ethereal.email',
     port: 587,
     secure: false,
     auth: {
-        user: "sonia.corwin6@ethereal.email",
-        pass: "e8cUYFdetnuNyzbE1r"
+        user: 'sonia.corwin6@ethereal.email',
+        pass: 'e8cUYFdetnuNyzbE1r'
     }
 });
 
 // --- SEND ROUTE ---
 app.post('/send', (req, res) => {
     var mailParams = {
-        from: "sonia.corwin6@ethereal.email",
-        to: "sonia.corwin6@ethereal.email",
-        subject: "Enviado desde el server",
-        text: "Puedes leer esto?"
+        from: 'sonia.corwin6@ethereal.email',
+        to: 'sonia.corwin6@ethereal.email',
+        subject: 'Sent from server',
+        text: 'Can ya read this?'
     };
 
     transporter.sendMail(mailParams, (error, info) => {
@@ -38,7 +38,7 @@ app.post('/send', (req, res) => {
             res.status(500).send(error.message);
         }
         else {
-            console.log("Mensaje enviado");
+            console.log('The message was sent.');
             res.status(200).jsonp(req.body);
         }
     });
