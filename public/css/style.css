@@ -1,0 +1,62 @@
+BODY {
+    background-color: whitesmoke;
+    color: black;
+    font-size: large;
+    font-family: serif, 'Times New Roman', Times, serif;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+INPUT {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    height: 12px;
+    font-family: monospace, Courier, monospace;
+    font-size: 18px;
+    width: 80%;
+	margin: 20px auto;
+	padding: 10px;
+    border: solid lightgray 2px;
+    background: #efefef;
+    box-shadow: 0 0 40px rgba(255, 255, 255, 0.226);
+	outline: none;
+	border-radius: 5px;
+}
+
+BUTTON {
+    margin: 2px auto;
+    border: none;
+    background-color: whitesmoke;
+}
+
+FORM {
+    background-color: whitesmoke;
+    padding: 5px;
+    border-radius: 10px;
+    margin: 2px auto;
+    border: 2px solid yellow;
+}
+
+.container {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 50px;
+}
+
+.container-row {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    margin: 50px;
+    background-color: black;
+    padding: 30px;
+    border: 2px solid yellow;
+    border-radius: 10px;
+}

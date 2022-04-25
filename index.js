@@ -2,6 +2,7 @@
 const express = require('express');
 const dotenv = require('dotenv');
 const nodemailer = require('nodemailer');
+const path = require('path');
 dotenv.config();
 
 // --- SERVER ---
@@ -12,6 +13,9 @@ app.listen(port, () => {
 	console.log('****************************');
     console.log(`Server running on port: ${port}`);
 });
+
+// Set the 'public' folder as default render
+app.use(express.static(path.join(__dirname, 'public')));
 
 // Set up the mail server with gmail credentials
 const transporter = nodemailer.createTransport({
@@ -27,6 +31,12 @@ const transporter = nodemailer.createTransport({
 // Credentials verification
 transporter.verify().then(() => {
     console.log('Connection established with Gmail');
+});
+
+// --- RENDER ROUTE ---
+// Index page
+app.get('/', (req,res) => {
+    res.sendFile(path.join(__dirname,'./views/index.html'));
 });
 
 // --- SEND ROUTE ---

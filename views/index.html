@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<HTML>
+    <HEAD>
+        <TITLE>Mail Manager</TITLE>
+        <LINK rel="stylesheet" type="text/css" href="css/style.css">
+    </HEAD>
+
+    <BODY>
+        <DIV id="main" class="container">
+            <H2>SEND EMAILS FROM YOUR GMAIL ACCOUNT</H2>
+            <SECTION class="container-row">
+                <IMG width="550" height="300" alt="GMAIL" src="img/gmail.png"/>
+                <FORM id="send" action="/send" method="POST">
+                    <LABEL for="receiver"><STRONG>TO: </STRONG></LABEL>
+                    <INPUT type="text" name="receiver" id="receiver" placeholder="Type the addressee">
+                    <LABEL for="subject"><STRONG>SUBJECT: </STRONG></LABEL>
+                    <INPUT type="text" name="subject" id="subject" placeholder="Type the subject">
+                    <LABEL for="message"><STRONG>MESSAGE: </STRONG></LABEL>
+                    <INPUT type="text" name="message" id="message" placeholder="Type the message content">
+                    <BUTTON type="submit" name="login"><IMG width="50" height="50" src="img/sent-mail.png"></BUTTON>
+                </FORM>
+            </SECTION>
+        </DIV>
+    </BODY>
+</HTML>
